@@ -1,0 +1,2292 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Der Fette Bulle – Online Menü</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- 🧠 Metadata -->
+<title>Der Fette Bulle – Menü</title>
+<meta name="description" content="Der Fette Bulle Menü – Comfort Made Real. Frankfurt’un en iyi burgerleri.">
+
+<!-- 🍔 Favicon -->
+<link rel="icon" type="image/png" href="images/DFB_logo_W.png" sizes="32x32">
+<link rel="apple-touch-icon" href="images/DFB_logo_W.png">
+  <style>
+/* =======================
+   FONT SETUP — DFB v13
+   ======================= */
+
+/* Hatton Variable */
+@font-face {
+  font-family: 'Hatton';
+  src: url('fonts/HattonVariable.ttf') format('truetype-variations');
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+/* Gooper Trial */
+@font-face {
+  font-family: 'Gooper';
+  src: url('fonts/GooperTrial-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Gooper';
+  src: url('fonts/GooperTrial-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Gooper';
+  src: url('fonts/GooperTrial-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-display: swap;
+}
+
+/* PP Mori */
+@font-face {
+  font-family: 'PP Mori';
+  src: url('fonts/PPMori-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'PP Mori';
+  src: url('fonts/PPMori-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'PP Mori';
+  src: url('fonts/PPMori-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-display: swap;
+}
+
+:root {
+  --dfb-red: #E24933;
+  --dfb-yellow: #F6BE00;
+  --dfb-green: #567a33;
+  --dfb-green-light: #6e9646;
+  --dfb-beige: #E0DAD2;
+  --dfb-dark: #111111;
+
+  --font-body: "PP Mori", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-heading: "Hatton", serif;
+  --font-mono: "Gooper", "PP Mori", monospace;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background: var(--dfb-beige);
+  color: #222;
+}
+
+header {
+  background: var(--dfb-dark);
+  color: #fff;
+  padding: 1.4rem 1.6rem 1.1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 3px solid var(--dfb-red);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);   /* 👈 yeni eklenen satır */
+}
+
+.logo-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;          /* 🔴 soldan ortaya */
+  text-align: center;           /* 🔴 metin ortalı */
+  line-height: 1;
+}
+
+header h1 {
+  margin: 0;
+  font-family: 'Gooper', var(--font-mono);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;           /* 🔸 harf aralığı biraz daraldı */
+  font-size: 1.8rem;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.25);
+  line-height: 1.2;                 /* 🔸 tagline için biraz daha nefes */
+}
+
+header .tagline {
+  font-family: var(--font-body);
+  font-size: 1.2rem;                /* 🔸 önceki 0.8rem → 1.2rem = 1.5 kat */
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  text-transform: none;
+  color: var(--dfb-yellow);
+  opacity: 0.95;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.25);
+  margin-top: 0.45rem;              /* 🔸 aradaki boşluk biraz arttı */
+}
+.menu-nav {
+  position: sticky;
+  top: 0;
+  background: #f5f1eb;
+  z-index: 999;
+  padding: 1rem 0;
+}
+.menu-nav a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.5rem;                 /* yazının altına */
+  width: 100%;
+  border-bottom: 4px dotted transparent;
+  transition: border-color 0.3s ease;
+}
+/* 📱 Mobilde yatay kaydırmalı görünüm */
+@media (max-width: 768px) {
+  .menu-nav {
+    overflow-x: auto;
+    gap: 1.2rem;
+    padding: 1rem;
+    justify-content: flex-start;
+    -webkit-overflow-scrolling: touch;
+  }
+  .menu-nav a {
+    flex: 0 0 auto;
+  }
+}
+
+/* ==========================
+   🔴 Dotted Navigation Style
+   ========================== */
+
+.menu-nav {
+  display: flex;
+  justify-content: center;
+  gap: 2.2rem;
+  margin: 2rem auto 2.5rem;
+  text-align: center;
+  border-bottom: 3px dotted rgba(0,0,0,0.15);
+  padding-bottom: 0.6rem;
+}
+
+.menu-nav a {
+  position: relative;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--dfb-dark);
+  text-decoration: none;
+  padding: 0.25rem 0;
+  transition: color 0.25s ease;
+}
+
+/* dotted çizgi efekti */
+.menu-nav a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.4rem;                 /* 👈 yazının altına gelsin */
+  width: 100%;
+  border-bottom: 4px dotted transparent;  /* 👈 üst yerine alt çizgi */
+  transition: border-color 0.3s ease;
+}
+
+/* hover ve aktif durumlar */
+.menu-nav a:hover::before,
+.menu-nav a.active::before {
+  border-bottom-color: var(--dfb-red);
+}
+
+/* hover ve aktif durumlar */
+.menu-nav a:hover::before,
+.menu-nav a.active::before {
+  border-color: var(--dfb-red);
+}
+
+.menu-nav a:hover,
+.menu-nav a.active {
+  color: var(--dfb-red);
+}
+
+/* 📱 Mobil görünüm */
+@media (max-width: 768px) {
+  .menu-nav {
+    overflow-x: auto;
+    gap: 1.4rem;
+    padding: 1rem;
+    justify-content: flex-start;
+    -webkit-overflow-scrolling: touch;
+  }
+  .menu-nav a {
+    flex: 0 0 auto;
+  }
+}
+
+.layout {
+  /* max-width: 1040px;   <-- BUNU SİL */
+  /* margin: 0 auto;      <-- BUNU DA SİL */
+  padding: 0 1.5rem;       /* sağ/sol her zaman boşluk */
+  box-sizing: border-box;
+}
+
+.menu-section {
+  padding: 1.5rem;
+  background: #fff;
+  border-radius: 0;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  max-width: 1040px;      /* genişlik sınırı BURADA */
+  margin: 0 auto;         /* beyaz blok ortada */
+}
+
+
+/* 🔸 eklediğimiz yeni blok — bölüm arası çizgiler için */
+.menu-section + .menu-section {
+  border-top: 4px dotted var(--dfb-red);
+  margin-top: 1.2rem;
+  padding-top: 1.6rem;
+}
+/* 🟢 VEGGIE/VEGAN özel bölüm üst çizgisi */
+#veggie {
+  border-top: 3px dotted var(--dfb-green);
+}
+
+#salat {
+  border-top: 3px dotted var(--dfb-green);
+}
+
+.menu-section h2 {
+  margin: 0 0 0.8rem;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 1.15rem;                /* 🔸 biraz büyüdü */
+  text-align: center;           /* 🔴 yeni */
+
+}
+
+/* 🔴 KIRMIZI başlıklar (RIND, HÜHNCHEN, PREMIUM, SIDES, DESSERTS vs.) */
+.menu-section h2.red {
+  color: var(--dfb-red);
+}
+
+/* 🟢 YEŞİL başlıklar (VEGGIE / VEGAN) */
+.menu-section h2.green {
+  color: var(--dfb-green);
+  font-size: 1.15rem;                /* diğerleriyle aynı punto */
+}
+
+.menu-section small {
+  display: block;
+  margin-bottom: 0.6rem;
+  font-size: 0.78rem;
+  color: #777;
+}
+/* 🥩 Entrecôte özel bölüm */
+#entrecote-highlight {
+  border-top: none;             /* dotted çizgi yok */
+  background: #f5f3ef;          /* kırık beyaz / hafif bej zemin */
+  padding: 1.8rem 1.5rem 1.5rem;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.05);
+}
+/* 🟡 PREMIUM & STEAKS sıcak sabit zemin */
+#premium {
+  background-color: #F3E8C2; /* bej + sarı karışımı */
+}
+/* 🧾 MEGA TITLE – büyük kategori başlıkları (BURGERS, & MORE, DRINKS) */
+/* 🍟 EXTRAS – kart değil, satır liste görünümü */
+#extras .menu-grid {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* max ~3 sütun */
+  gap: 0.35rem 1.8rem;  /* satırlar arası biraz, sütunlar arası biraz daha boşluk */
+}
+
+#extras .menu-item {
+  border: none;
+  box-shadow: none;
+  background: transparent;
+  padding: 0.1rem 0;
+}
+
+/* ürün adı + fiyat aynı satırda, arada dotted ayırıcı gibi */
+#extras .menu-item-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.6rem;
+  border-bottom: 1px dotted rgba(0,0,0,0.18);
+  padding-bottom: 0.1rem;
+}
+
+/* sadece EXTRAS başlıkları için daha sade tipografi */
+#extras .menu-item h3 {
+  font-family: var(--font-body);
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+/* EXTRAS fiyatları: çizgisiz, kompakt */
+#extras .menu-item .price {
+  border-top: none;
+  margin-top: 0;
+  padding-top: 0;
+  font-size: 0.85rem;
+}
+
+/* EXTRAS’ta açıklama ve butonları gizle (şu an zaten yok ama garanti olsun) */
+#extras .desc,
+#extras .meta,
+#extras .actions {
+  display: none;
+}
+/* 🍷 DRINKS – 3 sütunlu satır düzeni */
+
+#drinks .menu-grid {
+  display: none; /* eski kart grid'i varsa görünmesin */
+}
+
+.drinks-layout {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.8rem;
+  margin-top: 1rem;
+  font-size: 0.82rem;
+}
+
+.drink-column {}
+
+.drink-column-title {
+  margin: 0 0 0.4rem;
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* grup içi başlıklar: Alkoholfreie Getränke, Biere, Kaffee, vb. */
+.drink-group-title {
+  margin: 0.8rem 0 0.2rem;
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* tek tek içecek satırları */
+.drink-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto; /* isim | hacim | fiyat */
+  column-gap: 0.4rem;
+  align-items: baseline;
+  padding: 0.05rem 0;
+  border-bottom: 1px dotted rgba(0,0,0,0.16);
+}
+
+.drink-name {
+  white-space: normal;
+}
+
+.drink-volume {
+  font-size: 0.75rem;
+  color: #777;
+}
+
+.drink-price {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 0.8rem;
+}
+.drink-price {
+  font-weight: 500;            /* 🔸 kalınlığı bir seviye düşürdü */
+  color: rgba(17, 17, 17, 0.85); /* 🔸 %85 opaklık */
+}
+/* Cocktails başlığını biraz öne çıkaralım */
+.drink-column--cocktails .drink-column-title {
+  color: var(--dfb-red);
+}
+
+/* responsive: tablet → 2 sütun, mobil → 1 sütun */
+@media (max-width: 900px) {
+  .drinks-layout {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.4rem;
+  }
+}
+
+.drinks-layout {
+  margin-top: 0.5rem;
+  gap: 2.2rem;
+}
+
+.drink-column-title {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  text-transform: uppercase;
+  color: var(--dfb-red);
+  letter-spacing: 0.04em;
+  margin-bottom: 0.6rem;
+}
+
+.drink-group-title {
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  color: #333;
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  margin: 1rem 0 0.25rem;
+}
+
+.drink-item {
+  border-bottom: 1px dotted rgba(0,0,0,0.15);
+  padding: 0.12rem 0 0.05rem;
+}
+
+.drink-name {
+  color: #222;
+}
+
+.drink-volume {
+  color: #666;
+  font-size: 0.78rem;
+}
+
+.drink-price {
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+.drink-price {
+  font-weight: 500;            /* 🔸 kalınlığı bir seviye düşürdü */
+  color: rgba(17, 17, 17, 0.85); /* 🔸 %85 opaklık */
+}
+.drink-desc {
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: rgba(0,0,0,0.75);
+  margin-bottom: 0.6rem;
+}
+/* 🍸 Cocktails başlığı özel renk */
+.drink-column--cocktails .drink-column-title {
+  color: var(--dfb-red);
+}
+
+/* 🍷 Orta sütun başlıkları (Weine...) gold tonunda */
+.drinks-layout .drink-column:nth-child(2) .drink-group-title {
+  color: #b3842c; /* menüdeki sarıya yakın sıcak ton */
+}/* Tüm içecek başlıkları için ortak stil */
+.drink-column-title,
+.drink-group-title {
+  margin: 1rem 0 0.25rem;
+  font-family: var(--font-heading);
+  font-size: 0.9rem;          /* 🔸 hepsi aynı punto */
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Sütun başlığının en üstte olması için ilkine biraz daha az üst boşluk */
+.drink-column-title:first-child {
+  margin-top: 0.6rem;
+}
+
+/* --- RENK VARYANTLARI --- */
+
+/* siyah / koyu gri */
+.drink-head--black {
+  color: #222;
+}
+
+/* şampanya köpük / bakır arası */
+.drink-head--champagner {
+  color: #b88a3c;   /* istersen açar / koyulaştırırız */
+}
+
+/* şarap başlıkları için bordo */
+.drink-head--wine {
+  color: #8b2035;
+}
+
+/* kokteyl başlığı için DFB kırmızısı */
+.drink-head--cocktails {
+  color: var(--dfb-red);
+}
+@media (max-width: 600px) {
+  .drinks-layout {
+    grid-template-columns: 1fr;
+  }
+}
+.drink-group-title {
+  margin: 1.6rem 0 0.25rem; /* 🔸 varsayılan boşluk biraz arttı */
+}
+
+/* 🔹 sütundaki ilk başlıktan önce ekstra boşluk olmasın */
+.drink-column > .drink-group-title:first-of-type {
+  margin-top: 0.8rem; /* ya da 1.0rem — daha sıkı görünüm için */
+}
+/* Grup başlıklarının hepsinde aynı üst boşluk olsun */
+.drink-group-title {
+  margin: 1.4rem 0 0.25rem !important;
+}
+/* 🍸 Cocktails bölümündeki içecek adlarını vurgula */
+.drink-column--cocktails .drink-item .drink-name {
+  text-transform: uppercase;     /* 🔹 majüskül */
+  font-size: 0.9rem;             /* 🔹 diğer sütunlara göre biraz büyük */
+  letter-spacing: 0.03em;        /* 🔹 biraz daha havalı aralık */
+  font-weight: 600;              /* 🔹 bir tık kalın */
+}
+/* 🍸 Sadece Cocktails sütunundaki içecek adlarını majüskül yap */
+.drink-column--cocktails .drink-group:first-of-type .drink-item .drink-name {
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 0.03em;
+  font-weight: 600;
+}
+
+/* 🧊 Longdrinks ve diğer gruplar normal kalsın */
+.drink-column--cocktails .drink-group:not(:first-of-type) .drink-item .drink-name {
+  text-transform: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+.mega-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 3rem 0 1.7rem;
+  padding: 0;          /* 👈 .layout ile aynı padding */
+  background: transparent;
+  position: relative;
+  z-index: 1;
+  /* max-width: ... satırı varsa SİL */
+}
+
+.mega-title::before,
+.mega-title::after {
+  content: "";
+  flex: 1;
+  border-bottom: 6px dotted rgba(0,0,0,0.55); /* noktalı çizgi */
+}
+
+.mega-title span {
+  font-family: 'Hatton', var(--font-heading);
+  font-weight: 800;
+  font-variation-settings: 'wght' 800;
+  font-size: 2rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--dfb-dark);
+  white-space: nowrap;
+  background: var(--dfb-bg, #E0DAD2);
+  padding: 0 1.2rem;
+  line-height: 1;               /* 👈 satır yüksekliğini sabitledik */
+  box-shadow: none;             /* 👈 olası gölgeleri iptal ettik */
+  display: inline-block;        /* 👈 background tam otursun */
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 0.9rem 1rem;
+}
+
+.menu-item {
+  border: 1.5px solid rgba(0,0,0,0.15);  /* çizgi daha belirgin */
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1); /* daha sıkı, yere oturmuş gölge */
+  background: #fff;
+  border-radius: 0;                      /* köşeler düz kalmaya devam */
+  padding: 0.9rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
+}
+
+.menu-item:hover {
+  border-color: var(--dfb-red);
+  box-shadow: 0 3px 6px rgba(226,73,51,0.15);
+}
+/* 🔴 Özel vurgulu ürün (ör. ENTRECÔTE) */
+.menu-item.highlight {
+  border: 3px dotted var(--dfb-red);
+  box-shadow: none;
+  padding: 0.9rem 1rem;
+  position: relative;
+  background: #fff;
+}
+
+.menu-item.highlight h3 {
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  border-top: 0px solid rgba(0,0,0,0.5);
+  border-bottom: 1px solid rgba(0,0,0,0.5);
+  padding: 0.25rem 0;
+  margin: 0.4rem 0 0.5rem;
+  text-align: center;
+}
+
+.menu-item.highlight .price {
+  display: inline-block;
+  border: none;
+  color: var(--dfb-green);
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-left: 0.4rem;
+}
+
+.menu-item.highlight .desc,
+.menu-item.highlight .meta {
+  text-align: center;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: #333;
+}
+/* 🔠 Sadece ENTRECÔTE başlığı için */
+.entrecote-title {
+  font-size: 1.15rem;     /* RIND / HUHN başlıklarıyla aynı */
+  letter-spacing: 0.06em; /* biraz daha rahat okunsun */
+}
+/* Ürün görseli */
+.menu-img {
+  width: 100%;
+  border-radius: 0;
+  margin-bottom: 0.45rem;
+  object-fit: cover;
+  max-height: 180px;
+  display: block;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+.menu-item-header {
+  display: block;      /* flex DEĞİL, sadece blok */
+  margin-bottom: 0.1rem;
+}
+
+.menu-item h3 {
+  margin: 0;
+  font-size: 0.88rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  flex: 1 1 auto;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-variation-settings: 'wght' 600;
+  color: var(--dfb-dark);
+}
+
+.price {
+  display: block;                             /* yeni satır */
+  text-align: left;                           /* sola hizalı */
+  margin-top: 0.4rem;
+  padding-top: 0.35rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);  /* ince çizgi */
+  font-family: var(--font-mono);              /* Gooper / PP Mori */
+  font-weight: 500;
+  font-size: 0.88rem;                         /* ürün adıyla aynı punto */
+  color: var(--dfb-green);                    /*  #567a33 */
+  flex-shrink: 0;
+  box-sizing: border-box;
+  transition: color 0.2s ease, transform 0.15s ease;
+}
+
+.menu-item:hover .price {
+  color: var(--dfb-green-light);
+  transform: scale(1.03);
+}
+
+.menu-item:hover .price {
+  color: var(--dfb-green-light);
+  transform: scale(1.03);
+}
+
+.desc {
+  margin: 0.35rem 0 0.3rem;
+  font-size: 0.8rem;
+  color: #555;
+  line-height: 1.4;
+}
+
+.meta {
+  margin: 0;
+  font-size: 0.75rem;
+  color: #777;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.5rem;
+}
+
+/* Allergene linki */
+.allergen-link {
+  font-size: 0.78rem;
+  text-decoration: underline;
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+  color: #555;
+  transition: color 0.25s ease, text-decoration-color 0.25s ease;
+  text-decoration-color: rgba(86,122,51,0.25); /* yeşil gölge */
+}
+
+.allergen-link:hover {
+  color: var(--dfb-green);
+  text-decoration-color: var(--dfb-green-light);
+}
+
+/* 👇 “click after glow” efekti */
+.actions:has(+ .allergen-details.active) .allergen-link {
+  color: var(--dfb-green-light);
+  text-decoration-color: var(--dfb-green-light);
+  font-weight: 500;
+}
+
+/* Allergene detay bloğu – BAŞLANGIÇTA GİZLİ */
+.allergen-details {
+  display: none;
+  margin-top: 0.35rem;
+  font-size: 0.75rem;
+  color: #666;
+  line-height: 1.4;
+}
+
+.allergen-details.active {
+  display: block;
+}
+/* 🥩 Entrecôte özel alan — zemin + çizgi düzeni */
+#entrecote-highlight {
+  border-top: none;
+  background: #f5f3ef;
+  padding: 1.8rem 1.5rem 1.5rem;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.05);
+}
+
+#entrecote-highlight .price {
+  border-top: none;
+}
+/* 🔧 Anchorlardan inerken header'a çarpmayı engelle */
+#burgers,
+#more,
+#drinks {
+  scroll-margin-top: 120px; /* header yüksekliğine göre oynayabiliriz */
+}
+/* 📱 MOBILE OPTIMIZATION */
+/* 📱 MOBILE LAYOUT – 600px ve altı için */
+@media (max-width: 600px) {
+
+  /* Genel fontlar hafif küçülsün */
+  body {
+    font-size: 0.95rem;
+  }
+
+  /* HEADER: logo + tagline ortalı */
+  header {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1rem 1rem 0.8rem;
+  }
+
+  .logo-title {
+    align-items: center;
+    text-align: center;
+  }
+
+  header h1 {
+    font-size: 1.4rem;
+    letter-spacing: 0.07em;
+    line-height: 1.1;
+  }
+
+  header .tagline {
+    font-size: 1rem;
+    margin-top: 0.3rem;
+  }
+
+  /* Ana layout: tek kolon, yan boşluk biraz daralsın */
+  .layout {
+    display: block;
+    padding: 1rem;
+  }
+
+  /* Mega başlıklar (BURGERS, & MORE, DRINKS) */
+  .mega-title {
+    margin: 2.2rem 0 1.4rem;
+  }
+
+  .mega-title span {
+    font-size: 1.4rem;
+    letter-spacing: 0.12em;
+    padding: 0 0.8rem;
+  }
+
+  /* Section’lar biraz sıkı */
+  .menu-section {
+    padding: 1.2rem 1rem;
+  }
+
+  .menu-section + .menu-section {
+    margin-top: 1.6rem;
+    padding-top: 1.2rem;
+  }
+
+  .menu-section h2 {
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Grid tek kolona insin */
+  .menu-grid {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+
+  /* Kartlar */
+  .menu-item {
+    padding: 0.8rem 0.75rem 0.85rem;
+    border-width: 1px;
+  }
+
+  .menu-img {
+    max-height: 220px;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  /* Tipografi biraz kompakt */
+  .menu-item h3 {
+    font-size: 0.86rem;
+  }
+
+  .desc {
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+
+  .price {
+    font-size: 0.86rem;
+  }
+
+  /* Allergen link: ortalı ve okunur */
+  .allergen-link {
+    font-size: 0.75rem;
+    text-align: center;
+    display: block;
+    margin-top: 0.3rem;
+  }
+}
+/* =============== FOOTER =============== */
+
+.site-footer {
+  background: var(--dfb-dark);
+  color: #f5f5f5;
+  padding: 1.8rem 1.5rem 1.4rem;
+  margin-top: 3rem;
+  border-top: 3px solid var(--dfb-red);
+  font-size: 0.85rem;
+}
+
+.site-footer a {
+  color: var(--dfb-yellow);
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  text-decoration: underline;
+}
+
+.footer-inner {
+  max-width: 1040px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.footer-locations,
+.footer-meta {
+  flex: 1 1 260px;
+}
+
+.footer-locations h3,
+.footer-meta h3 {
+  margin: 0 0 0.4rem;
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.footer-location {
+  margin-bottom: 1.1rem;
+}
+
+.footer-location h4 {
+  margin: 0 0 0.2rem;
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.footer-location p {
+  margin: 0 0 0.4rem;
+  color: #ddd;
+}
+
+.footer-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.6rem;
+}
+
+.footer-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.18rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid var(--dfb-yellow);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.footer-link {
+  font-size: 0.78rem;
+  text-decoration: underline;
+}
+
+.footer-meta p {
+  margin: 0 0 0.5rem;
+  color: #ddd;
+}
+
+.footer-meta .allergen-link-footer {
+  font-size: 0.8rem;
+  text-decoration: underline;
+}
+
+.footer-social {
+  margin-top: 0.6rem;
+}
+
+.footer-social a {
+  font-size: 0.8rem;
+}
+
+.footer-bottom {
+  max-width: 1040px;
+  margin: 1.2rem auto 0;
+  padding-top: 0.7rem;
+  border-top: 1px solid rgba(255,255,255,0.12);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.7rem;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  color: #ccc;
+}
+
+.footer-bottom-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.7rem;
+}
+
+.footer-bottom-links a {
+  color: #f5f5f5;
+  font-size: 0.78rem;
+}
+
+/* mobilde footer biraz yumuşasın */
+@media (max-width: 700px) {
+  .footer-inner {
+    flex-direction: column;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+.drink-head--wine {
+  color: #7a1d30 !important;
+}
+.drink-head--aperitif,
+.drink-head--digestif {
+  color: #1e1e1e !important;
+}
+
+.drink-head--black {
+  color: #000 !important;
+}
+/* DRINKS bölümünde başlık ile beyaz kutu arasındaki boşluğu kısalt */
+#drinks.mega-title {
+  margin-bottom: 1.2rem;   /* istersen 1.0rem bile yapabilirsin */
+}
+
+/* DRINKS listesinin olduğu section: üstteki dotted border ve büyük boşluklar kalksın */
+#drinks.mega-title + .menu-section {
+  border-top: none;
+  margin-top: 0;
+  padding-top: 0.5rem;     /* ince bir nefes kalsın */
+}
+/* DRINKS mega başlığının alt boşluğunu kısalt */
+#drinks.mega-title {
+  margin-bottom: 0.8rem !important;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo-title">
+    <h1>DER FETTE BULLE</h1>
+    <span class="tagline">comfort made real.</span>
+  </div>
+</header>
+
+<nav class="menu-nav">
+  <a href="#burgers">BURGERS</a>
+  <a href="#more">MORE</a>
+  <a href="#drinks">DRINKS</a>
+</nav>
+
+<div class="layout">
+  <main>
+
+  <!-- 🔻 yeni anchor -->
+  <div id="burgers"></div>
+  <!-- 🔺 -->
+
+<div class="mega-title"><span>BURGERS</span></div>
+    <!-- RIND (+ Comfort Burgers birleşmiş) -->
+    <section class="menu-section" id="rind">
+      <h2 class="red">RIND</h2>
+      <div class="menu-grid">
+        <!-- Klasik Rind -->
+       <article class="menu-item" data-name="Cheeseburger" data-price="11.90">
+  <img class="menu-img" src="images/cheeseburger.png" alt="Cheeseburger">
+
+  <div class="menu-item-header">
+    <h3>CHEESEBURGER</h3>
+    <div class="price">11,90 €</div>
+  </div>
+
+  <p class="desc">
+    Old Irish Cheddar, Tomaten, Spreewaldgurken, Zwiebeln.
+  </p>
+
+  <div class="actions">
+    <button class="allergen-link" type="button" data-allergen-target="allergen-cheeseburger">
+      Allergene anzeigen
+    </button>
+  </div>
+
+  <div id="allergen-cheeseburger" class="allergen-details">
+    <strong>Allergene:</strong> Enthält Gluten, Milch (Laktose). Kann Spuren von Senf enthalten.
+  </div>
+</article>
+
+        <article class="menu-item" data-name="Der Bulle" data-price="14.90">
+  <img class="menu-img" src="images/der_bulle_burger.png" alt="Der Bulle Burger">
+
+  <div class="menu-item-header">
+    <h3>DER BULLE</h3>
+    <div class="price">14,90 €</div>
+  </div>
+
+  <p class="desc">
+    Double Patty, Double Old Irish Cheddar, karamellisierte Zwiebeln,
+    Bullen-Sauce, Spreewaldgurken.
+  </p>
+
+  <div class="actions">
+    <button class="allergen-link" type="button" data-allergen-target="allergen-bulle">
+      Allergene anzeigen
+    </button>
+  </div>
+
+  <div id="allergen-bulle" class="allergen-details">
+    <strong>Allergene:</strong> Enthält Gluten, Milch (Laktose), Ei.
+  </div>
+</article>
+
+     <article class="menu-item" data-name="Der Fette Bulle" data-price="16.90">
+  <img class="menu-img" src="images/der_fette_bulle.png" alt="Der Fette Bulle Burger">
+
+  <div class="menu-item-header">
+    <h3>DER FETTE BULLE</h3>
+    <div class="price">16,90 €</div>
+  </div>
+
+  <p class="desc">
+    Double Patty, Double Old Irish Cheddar, Bio-Ei, Homemade Beef Bacon,
+    Tomaten, karamellisierte Zwiebeln, BBQ-Sauce &amp; Chili-Mayo.
+  </p>
+
+  <div class="actions">
+    <button class="allergen-link" type="button" data-allergen-target="allergen-fette-bulle">
+      Allergene anzeigen
+    </button>
+  </div>
+
+  <div id="allergen-fette-bulle" class="allergen-details">
+    <strong>Allergene:</strong> Enthält Gluten, Milch (Laktose), Ei. Kann Spuren von Senf und Sesam enthalten.
+  </div>
+</article>
+
+        <article class="menu-item" data-name="Der Chillige Cheese" data-price="12.90">
+          <div class="menu-item-header">
+            <h3>DER CHILLIGE CHEESE</h3>
+            <div class="price">12,90 €</div>
+          </div>
+          <p class="desc">Old Irish Cheddar, Jalapeños, gegrillte Paprika, Tomaten, Pepper, karamellisierte Zwiebeln, Chili-Mayo.</p>
+          <div class="actions">
+            <button class="allergen-link" type="button" data-allergen-target="">Allergene anzeigen</button>
+          </div>
+        </article>
+
+        <!-- Eski Comfort Burgers şimdi burada -->
+        <article class="menu-item" data-name="Der Amerikaner" data-price="13.90">
+          <div class="menu-item-header">
+            <h3>DER AMERIKANER</h3>
+            <div class="price">13,90 €</div>
+          </div>
+          <p class="desc">Old Irish Cheddar, Homemade Beef Bacon, Jalapeños, karamellisierte Zwiebeln, Onion Ring, BBQ-Sauce &amp; Chili-Mayo.</p>
+          <div class="actions">
+            <button class="allergen-link" type="button" data-allergen-target="">Allergene anzeigen</button>
+          </div>
+        </article>
+
+        <article class="menu-item" data-name="Burger Italia" data-price="13.90">
+          <div class="menu-item-header">
+            <h3>BURGER ITALIA</h3>
+            <div class="price">13,90 €</div>
+          </div>
+          <p class="desc">Mozzarella, Parmesan, frische &amp; getrocknete Tomaten, gegrillte Aubergine, Pesto, Balsamicocreme.</p>
+          <div class="actions">
+            <button class="allergen-link" type="button" data-allergen-target="">Allergene anzeigen</button>
+          </div>
+        </article>
+
+        <article class="menu-item" data-name="Avo-Chilli" data-price="13.90">
+          <div class="menu-item-header">
+            <h3>AVO-CHILLI</h3>
+            <div class="price">13,90 €</div>
+          </div>
+          <p class="desc">Frische Avocado, Parmesan, Tomaten, Pepper, Jalapeños, Homemade Beef Bacon, Chili-Mayo &amp; Aioli.</p>
+          <div class="actions">
+            <button class="allergen-link" type="button" data-allergen-target="">Allergene anzeigen</button>
+          </div>
+        </article>
+
+        <article class="menu-item" data-name="New York Burger" data-price="13.90">
+          <div class="menu-item-header">
+            <h3>NEW YORK BURGER</h3>
+            <div class="price">13,90 €</div>
+          </div>
+          <p class="desc">Old Irish Cheddar, Homemade Beef Bacon, Bio-Ei, Spreewaldgurken, Tomaten, Zwiebeln, BBQ &amp; American Mustard.</p>
+          <div class="actions">
+            <button class="allergen-link" type="button" data-allergen-target="">Allergene anzeigen</button>
+          </div>
+        </article>
+
+        <article class="menu-item" data-name="Blue Champ" data-price="13.90">
+          <div class="menu-item-header">
+            <h3>BLUE CHAMP</h3>
+            <div class="price">13,90 €</div>
+          </div>
+          <p class="desc">Blue Cheese, Champignons, karamellisierte Zwiebeln, Preiselbeer-Chutney.</p>
+          <div class="actions">
+            <button class="allergen-link" type="button" data-allergen-target="">Allergene anzeigen</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+     <!-- PREMIUM -->
+    <section class="menu-section" id="premium">
+      <h2 class="red">PREMIUM</h2>
+      <small>Entrecôte &amp; Signature Burgers</small>
+      <div class="menu-grid">
+       
+
+        <article class="menu-item" data-name="The Premium Black Angus" data-price="21.90">
+          <div class="menu-item-header">
+            <h3>THE PREMIUM BLACK ANGUS</h3>
+            <div class="price">21,90 €</div>
+          </div>
+          <p class="desc">Double Black Angus Patty, Old Irish Cheddar, karamellisierte Zwiebeln, Homemade Beef Bacon.</p>
+          <p class="meta">serviert mit Skinny-Skin-Fries.</p>
+          <div class="actions">
+            <button class="allergen-link" type="button" data-allergen-target="">Allergene anzeigen</button>
+          </div>
+        </article>
+
+        <article class="menu-item" data-name="Smashed by Streets" data-price="20.90">
+          <div class="menu-item-header">
+            <h3>SMASHED BY STREETS</h3>
+            <div class="price">20,90 €</div>
+          </div>
+          <p class="desc">Double Smashed Patty, Double Old Irish Cheddar, karamellisierte Zwiebeln, Joppie-Sauce, Cheddar-Sauce.</p>
+          <p class="meta">serviert mit Skinny-Skin-Fries.</p>
+          <div class="actions">
+            <button class="allergen-link" type="button" data-allergen-target="">Allergene anzeigen</button>
+          </div>
+        </article>
+
+        <article class="menu-item" data-name="The New Truffle" data-price="21.90">
+          <div class="menu-item-header">
+            <h3>THE NEW TRUFFLE</h3>
+            <div class="price">21,90 €</div>
+          </div>
+          <p class="desc">Black Angus Patty, Champignons, Appenzeller Käse, Tomaten, Trüffel-Mayo, karamellisierte Zwiebeln, Crunchy Onions.</p>
+          <p class="meta">serviert mit Skinny-Skin-Fries.</p>
+          <div class="actions">
+            <button class="allergen-link" type="button" data-allergen-target="">Allergene anzeigen</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 🔴 Highlight – Entrecôte özel -->
+<section class="menu-section" id="entrecote-highlight">
+  <div class="menu-grid">
+    <article class="menu-item highlight" data-name="Entrecôte" data-price="29.90">
+      <div class="menu-item-header">
+        <h3 class="entrecote-title">ENTRECÔTE <span class="price">29,90 €</span></h3>
+      </div>
+      <p class="desc">Das charakteristische, besonders saftige und geschmackvolle Stück.<br>Serviert mit Skinny–Skin–Fries.</p>
+      <div class="actions">
+        <button class="allergen-link" type="button" data-allergen-target="">Allergene anzeigen</button>
+      </div>
+    </article>
+  </div>
+</section>
+    <!-- HUHN -->
+    <section class="menu-section" id="huhn">
+      <h2 class="red">HUHN</h2>
+      <small>natürlich und saftig</small>
+      <div class="menu-grid">
+        <article class="menu-item" data-name="Chili Chicken" data-price="12.90">
+          <div class="menu-item-header">
+            <h3>CHILI CHICKEN</h3>
+            <div class="price">12,90 €</div>
+          </div>
+          <p class="desc">Gegrilltes Hähnchenbrustfilet, Old Irish Cheddar, Jalapeños, gegrillte Paprika, Tomaten, Pepper, Chili-Mayo.</p>
+          <div class="actions">
+            <button class="allergen-link" type="button" data-allergen-target="">Allergene anzeigen</button>
+          </div>
+        </article>
+
+        <article class="menu-item" data-name="Napolitaner" data-price="12.90">
+          <div class="menu-item-header">
+            <h3>NAPOLITANER</h3>
+            <div class="price">12,90 €</div>
+          </div>
+          <p class="desc">Gegrilltes Hähnchenbrustfilet, Mozzarella, Parmesan, frische &amp; getrocknete Tomaten, gegrillte Aubergine &amp; Zucchini, Pesto, Balsamicocreme.</p>
+          <div class="actions">
+            <button class="allergen-link" type="button" data-allergen-target="">Allergene anzeigen</button>
+          </div>
+        </article>
+
+        <article class="menu-item" data-name="Buffalo Hot Chicken" data-price="12.90">
+          <div class="menu-item-header">
+            <h3>BUFFALO HOT CHICKEN</h3>
+            <div class="price">12,90 €</div>
+          </div>
+          <p class="desc">Crunchy Hähnchenbrustfilet, Butter-Hot-Sauce, Spreewaldgurken, Shredded Eisberg.</p>
+          <div class="actions">
+            <button class="allergen-link" type="button" data-allergen-target="">Allergene anzeigen</button>
+          </div>
+        </article>
+
+        <article class="menu-item" data-name="Crispy Chicken" data-price="12.90">
+          <div class="menu-item-header">
+            <h3>CRISPY CHICKEN</h3>
+            <div class="price">12,90 €</div>
+          </div>
+          <p class="desc">Crunchy Hähnchenbrustfilet, Old Irish Cheddar, Coleslaw, Shredded Eisberg, Joppie-Sauce.</p>
+          <div class="actions">
+            <button class="allergen-link" type="button" data-allergen-target="">Allergene anzeigen</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- VEGGIE & VEGAN -->
+    <section class="menu-section" id="veggie">
+      <h2 class="green">VEGGIE / VEGAN</h2>
+      <small>immer frisch</small>
+      <div class="menu-grid">
+        <article class="menu-item" data-name="Avo-Dinkel" data-price="12.90">
+          <div class="menu-item-header">
+            <h3>AVO-DINKEL</h3>
+            <div class="price">12,90 €</div>
+          </div>
+          <p class="desc">Hausgemachter Dinkel-Tofu-Bratling, frische Avocado, Mozzarella, Tomaten, Spreewaldgurken, karamellisierte Zwiebeln, BBQ-Sauce &amp; Aioli.</p>
+          <div class="actions">
+            <button class="allergen-link" type="button" data-allergen-target="">Allergene anzeigen</button>
+          </div>
+        </article>
+
+        <article class="menu-item" data-name="Falafel Burger" data-price="12.90">
+          <div class="menu-item-header">
+            <h3>FALAFEL BURGER</h3>
+            <div class="price">12,90 €</div>
+          </div>
+          <p class="desc">Falafel, Fetakäse, gegrillte Aubergine, Tomaten, Spreewaldgurken, Aioli &amp; Chili-Mayo.</p>
+          <div class="actions">
+            <button class="allergen-link" type="button" data-allergen-target="">Allergene anzeigen</button>
+          </div>
+        </article>
+
+        <article class="menu-item" data-name="Feta-Pesto" data-price="12.90">
+          <div class="menu-item-header">
+            <h3>FETA-PESTO</h3>
+            <div class="price">12,90 €</div>
+          </div>
+          <p class="desc">Fetakäse in Haselnussmantel, gegrillte Aubergine &amp; Zucchini, Aioli, Pesto, getrocknete Tomaten, Balsamicocreme.</p>
+          <div class="actions">
+            <button class="allergen-link" type="button" data-allergen-target="">Allergene anzeigen</button>
+          </div>
+        </article>
+
+        <article class="menu-item" data-name="Vegan Burger" data-price="12.90">
+          <div class="menu-item-header">
+            <h3>VEGAN BURGER</h3>
+            <div class="price">12,90 €</div>
+          </div>
+          <p class="desc">Hausgemachter Vegan-Bratling, Vegan-Käse, frische Avocado, Spreewaldgurken, Tomate, Vegan-Mayo.</p>
+          <div class="actions">
+            <button class="allergen-link" type="button" data-allergen-target="">Allergene anzeigen</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+      <!-- 🔻 yeni anchor -->
+  <div id="more"></div>
+  <!-- 🔺 -->
+
+  <div class="mega-title"><span>&amp; MORE</span></div>
+    <!-- BEILAGEN -->
+    <section class="menu-section" id="beilagen">
+      <h2 class="red">BEILAGEN</h2>
+      <div class="menu-grid">
+        <article class="menu-item" data-name="Hausfritten" data-price="4.90">
+          <div class="menu-item-header">
+            <h3>Hausfritten</h3>
+            <div class="price">4,90 €</div>
+          </div>
+          <div class="actions">
+            <button class="allergen-link" type="button" data-allergen-target="">Allergene anzeigen</button>
+          </div>
+        </article>
+
+        <article class="menu-item" data-name="Hausfritten mit Thymian &amp; Rosmarin" data-price="5.40">
+          <div class="menu-item-header">
+            <h3>Hausfritten mit Thymian &amp; Rosmarin</h3>
+            <div class="price">5,40 €</div>
+          </div>
+          <div class="actions">
+            <button class="allergen-link" type="button" data-allergen-target="">Allergene anzeigen</button>
+          </div>
+        </article>
+
+        <article class="menu-item" data-name="Süßkartoffelfritten" data-price="6.90">
+          <div class="menu-item-header">
+            <h3>Süßkartoffelfritten</h3>
+            <div class="price">6,90 €</div>
+          </div>
+          <div class="actions">
+            <button class="allergen-link" type="button" data-allergen-target="">Allergene anzeigen</button>
+          </div>
+        </article>
+
+        <article class="menu-item" data-name="Marktfrischer oder Kraut-Salat" data-price="4.90">
+          <div class="menu-item-header">
+            <h3>Marktfrischer oder Kraut-Salat</h3>
+            <div class="price">4,90 €</div>
+          </div>
+          <div class="actions">
+            <button class="allergen-link" type="button" data-allergen-target="">Allergene anzeigen</button>
+          </div>
+        </article>
+
+        <article class="menu-item" data-name="Onion Rings" data-price="5.90">
+          <div class="menu-item-header">
+            <h3>Onion Rings</h3>
+            <div class="price">5,90 €</div>
+          </div>
+          <div class="actions">
+            <button class="allergen-link" type="button" data-allergen-target="">Allergene anzeigen</button>
+          </div>
+        </article>
+
+        <article class="menu-item" data-name="Chicken Wings" data-price="8.90">
+          <div class="menu-item-header">
+            <h3>Chicken Wings</h3>
+            <div class="price">8,90 €</div>
+          </div>
+          <div class="actions">
+            <button class="allergen-link" type="button" data-allergen-target="">Allergene anzeigen</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- LOADED FRIES -->
+    <section class="menu-section" id="loaded-fries">
+      <h2 class="red">LOADED FRIES</h2>
+      <div class="menu-grid">
+        <article class="menu-item" data-name="Knoblauch-Fritten" data-price="6.90">
+          <div class="menu-item-header">
+            <h3>KNOBLAUCH-FRITTEN</h3>
+            <div class="price">6,90 €</div>
+          </div>
+          <p class="desc">mit Parmesan &amp; Petersilie.</p>
+          <div class="actions">
+            <button class="allergen-link" type="button" data-allergen-target="">Allergene anzeigen</button>
+          </div>
+        </article>
+
+        <article class="menu-item" data-name="Chili-Cheese-Fries" data-price="8.90">
+          <div class="menu-item-header">
+            <h3>CHILI-CHEESE-FRIES</h3>
+            <div class="price">8,90 €</div>
+          </div>
+          <p class="desc">mit Rinderhack &amp; Sour-Cream.</p>
+          <div class="actions">
+            <button class="allergen-link" type="button" data-allergen-target="">Allergene anzeigen</button>
+          </div>
+        </article>
+
+        <article class="menu-item" data-name="Avocado-Fritten" data-price="7.90">
+          <div class="menu-item-header">
+            <h3>AVOCADO-FRITTEN</h3>
+            <div class="price">7,90 €</div>
+          </div>
+          <p class="desc">mit Guacamole, Tomaten-Salsa &amp; Sour-Cream.</p>
+          <div class="actions">
+            <button class="allergen-link" type="button" data-allergen-target="">Allergene anzeigen</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SALATE -->
+    <section class="menu-section" id="salat">
+      <h2 class="red">SALAT</h2>
+      <div class="menu-grid">
+        <article class="menu-item" data-name="Caesar Salat" data-price="9.90">
+          <div class="menu-item-header">
+            <h3>CAESAR</h3>
+            <div class="price">9,90 €</div>
+          </div>
+          <p class="desc">Romana Salat, Parmesan, Tomate, Croutons.</p>
+          <p class="meta">+ Hähnchenbrustfilet 5,50 € · + Crunchy Chicken 5,50 € (als Extra wählbar).</p>
+          <div class="actions">
+            <button class="allergen-link" type="button" data-allergen-target="">Allergene anzeigen</button>
+          </div>
+        </article>
+
+        <article class="menu-item" data-name="Pariser Salat" data-price="14.90">
+          <div class="menu-item-header">
+            <h3>PARISER</h3>
+            <div class="price">14,90 €</div>
+          </div>
+          <p class="desc">Ziegenkäse mit Honig, karamellisierte Walnüsse &amp; Sonnenblumenkerne, Balsamicodressing.</p>
+          <div class="actions">
+            <button class="allergen-link" type="button" data-allergen-target="">Allergene anzeigen</button>
+          </div>
+        </article>
+
+        <article class="menu-item" data-name="Avo-Feta Salat" data-price="15.90">
+          <div class="menu-item-header">
+            <h3>AVO-FETA</h3>
+            <div class="price">15,90 €</div>
+          </div>
+          <p class="desc">Marktfrischer Salat, Fetakäse in Haselnussmantel, frische Avocado, Quinoa, Süßkartoffel-Wedges.</p>
+          <div class="actions">
+            <button class="allergen-link" type="button" data-allergen-target="">Allergene anzeigen</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- KINDER & LUNCH -->
+    <section class="menu-section" id="kids-lunch">
+      <h2 class="red">KINDER &amp; LUNCH MENUS</h2>
+      <div class="menu-grid">
+        <article class="menu-item" data-name="Kinder Menü" data-price="11.90">
+          <div class="menu-item-header">
+            <h3>KINDER MENU</h3>
+            <div class="price">11,90 €</div>
+          </div>
+          <p class="desc">Hamburger oder Chickenburger, dazu Pommes &amp; Saft. Bis 12 Jahre (nur Inhouse).</p>
+          <div class="actions">
+            <button class="allergen-link" type="button" data-allergen-target="">Allergene anzeigen</button>
+          </div>
+        </article>
+
+        <article class="menu-item" data-name="Lunch Menu mit Limo/Eistee" data-price="16.40">
+          <div class="menu-item-header">
+            <h3>LUNCH MENU · mit Limo/Eistee</h3>
+            <div class="price">16,40 €</div>
+          </div>
+          <p class="desc">Burger des Tages mit Hausfritten oder marktfrischem Salat, dazu hausgemachte Limonade oder Eistee.</p>
+          <p class="meta">Montag – Freitag, 11:30 – 15:00.</p>
+          <div class="actions">
+            <button class="allergen-link" type="button" data-allergen-target="">Allergene anzeigen</button>
+          </div>
+        </article>
+
+        <article class="menu-item" data-name="Lunch Menu mit Soft Drink" data-price="15.90">
+          <div class="menu-item-header">
+            <h3>LUNCH MENU · mit Soft Drink</h3>
+            <div class="price">15,90 €</div>
+          </div>
+          <p class="desc">Burger des Tages mit Hausfritten oder marktfrischem Salat, dazu Soft Drink (Coca-Cola Produkte) oder Wasser (0,20 L).</p>
+          <p class="meta">Montag – Freitag, 11:30 – 15:00.</p>
+          <div class="actions">
+            <button class="allergen-link" type="button" data-allergen-target="">Allergene anzeigen</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SHARING BITES -->
+    <section class="menu-section" id="sharing-bites">
+      <h2 class="red">SHARING BITES</h2>
+      <div class="menu-grid">
+        <article class="menu-item" data-name="Sharing Platte" data-price="16.90">
+          <div class="menu-item-header">
+            <h3>SHARING PLATTE</h3>
+            <div class="price">16,90 €</div>
+          </div>
+          <p class="desc">Cream Cheese Jalapeños, Chicken Stripes, Onion Rings, Süßkartoffelfritten, Skinny-Skin-Fries, serviert mit 3 Dips.</p>
+          <div class="actions">
+            <button class="allergen-link" type="button" data-allergen-target="">Allergene anzeigen</button>
+          </div>
+        </article>
+
+        <article class="menu-item" data-name="Mac’n Cheese Balls" data-price="5.90">
+          <div class="menu-item-header">
+            <h3>MAC’N CHEESE BALLS</h3>
+            <div class="price">5,90 €</div>
+          </div>
+          <p class="desc">Mac’n Cheese Balls mit Sour Cream.</p>
+          <div class="actions">
+            <button class="allergen-link" type="button" data-allergen-target="">Allergene anzeigen</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- DESSERT -->
+    <section class="menu-section" id="dessert">
+      <h2 class="red">DESSERT</h2>
+      <div class="menu-grid">
+        <article class="menu-item" data-name="San Sebastian Cheesecake" data-price="6.90">
+          <div class="menu-item-header">
+            <h3>SAN SEBASTIAN CHEESECAKE</h3>
+            <div class="price">6,90 €</div>
+          </div>
+          <div class="actions">
+            <button class="allergen-link" type="button" data-allergen-target="">Allergene anzeigen</button>
+          </div>
+        </article>
+
+        <article class="menu-item" data-name="Oh My Lava Cake" data-price="7.90">
+          <div class="menu-item-header">
+            <h3>OH MY LAVA CAKE</h3>
+            <div class="price">7,90 €</div>
+          </div>
+          <p class="desc">mit Vanilleeis.</p>
+          <div class="actions">
+            <button class="allergen-link" type="button" data-allergen-target="">Allergene anzeigen</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- EXTRAS & DIPS -->
+    <section class="menu-section" id="extras">
+      <h2 class="red">EXTRAS &amp; DIPS</h2>
+      <div class="menu-grid">
+        <article class="menu-item" data-name="Extra Patty" data-price="5.50">
+          <div class="menu-item-header">
+            <h3>Extra Patty</h3>
+            <div class="price">5,50 €</div>
+          </div>
+          <div class="actions">
+            <button class="allergen-link" type="button" data-allergen-target="">Allergene anzeigen</button>
+          </div>
+        </article>
+        <article class="menu-item" data-name="Extra Käse" data-price="2.00">
+          <div class="menu-item-header">
+            <h3>Extra Käse</h3>
+            <div class="price">2,00 €</div>
+          </div>
+          <div class="actions">
+            <button class="allergen-link" type="button" data-allergen-target="">Allergene anzeigen</button>
+          </div>
+        </article>
+        <article class="menu-item" data-name="Avocado Extra" data-price="2.00">
+          <div class="menu-item-header">
+            <h3>Avocado</h3>
+            <div class="price">2,00 €</div>
+          </div>
+          <div class="actions">
+            <button class="allergen-link" type="button" data-allergen-target="">Allergene anzeigen</button>
+          </div>
+        </article>
+        <article class="menu-item" data-name="Bio-Ei Extra" data-price="2.00">
+          <div class="menu-item-header">
+            <h3>Bio-Ei</h3>
+            <div class="price">2,00 €</div>
+          </div>
+          <div class="actions">
+            <button class="allergen-link" type="button" data-allergen-target="">Allergene anzeigen</button>
+          </div>
+        </article>
+        <article class="menu-item" data-name="Homemade Beef Bacon Extra" data-price="2.00">
+          <div class="menu-item-header">
+            <h3>Homemade Beef Bacon</h3>
+            <div class="price">2,00 €</div>
+          </div>
+          <div class="actions">
+            <button class="allergen-link" type="button" data-allergen-target="">Allergene anzeigen</button>
+          </div>
+        </article>
+
+        <article class="menu-item" data-name="Chili-Mayo Dip" data-price="1.00">
+          <div class="menu-item-header">
+            <h3>Chili-Mayo</h3>
+            <div class="price">1,00 €</div>
+          </div>
+          <div class="actions">
+            <button class="allergen-link" type="button" data-allergen-target="">Allergene anzeigen</button>
+          </div>
+        </article>
+        <article class="menu-item" data-name="BBQ-Sauce Dip" data-price="1.00">
+          <div class="menu-item-header">
+            <h3>BBQ-Sauce</h3>
+            <div class="price">1,00 €</div>
+          </div>
+          <div class="actions">
+            <button class="allergen-link" type="button" data-allergen-target="">Allergene anzeigen</button>
+          </div>
+        </article>
+        <article class="menu-item" data-name="Joppie-Sauce Dip" data-price="1.00">
+          <div class="menu-item-header">
+            <h3>Joppie-Sauce</h3>
+            <div class="price">1,00 €</div>
+          </div>
+          <div class="actions">
+            <button class="allergen-link" type="button" data-allergen-target="">Allergene anzeigen</button>
+          </div>
+        </article>
+        <article class="menu-item" data-name="Sour Cream Dip" data-price="1.00">
+          <div class="menu-item-header">
+            <h3>Sour Cream</h3>
+            <div class="price">1,00 €</div>
+          </div>
+          <div class="actions">
+            <button class="allergen-link" type="button" data-allergen-target="">Allergene anzeigen</button>
+          </div>
+        </article>
+        <article class="menu-item" data-name="Trüffel-Mayo Dip" data-price="2.00">
+          <div class="menu-item-header">
+            <h3>Trüffel-Mayo</h3>
+            <div class="price">2,00 €</div>
+          </div>
+          <div class="actions">
+            <button class="allergen-link" type="button" data-allergen-target="">Allergene anzeigen</button>
+          </div>
+        </article>
+        <article class="menu-item" data-name="Guacamole Dip" data-price="2.00">
+          <div class="menu-item-header">
+            <h3>Guacamole</h3>
+            <div class="price">2,00 €</div>
+          </div>
+          <div class="actions">
+            <button class="allergen-link" type="button" data-allergen-target="">Allergene anzeigen</button>
+          </div>
+        </article>
+      </div>
+      <small>Auf Wunsch mit Dinkel- oder glutenfreiem Bun (+1 € Aufpreis). Alle Burger als Low-Carb in frischem Eisbergsalat möglich. Bei Fragen zu Allergenen wenden Sie sich an unser Personal.</small>
+    </section>
+
+  <div id="drinks" class="mega-title"><span>DRINKS</span></div>
+
+    <section class="menu-section drinks-section">
+
+  <div class="drinks-layout">
+    <!-- 1. SÜTUN – HAUSGEMACHTES / ALKOHOLFREI / BIERE / KAFFEE -->
+    <div class="drink-column">
+      <h3 class="drink-column-title drink-head--black">Hausgemachtes</h3>
+
+      <div class="drink-group">
+        <div class="drink-item">
+          <span class="drink-name">Zitronenlimonade</span>
+          <span class="drink-volume">0,40&nbsp;L</span>
+          <span class="drink-price">4,90&nbsp;€</span>
+        </div>
+        <div class="drink-item">
+          <span class="drink-name">Wassermelonen-Eistee</span>
+          <span class="drink-volume">0,40&nbsp;L</span>
+          <span class="drink-price">4,90&nbsp;€</span>
+        </div>
+        <div class="drink-item">
+          <span class="drink-name">Eistee</span>
+          <span class="drink-volume">0,40&nbsp;L</span>
+          <span class="drink-price">4,90&nbsp;€</span>
+        </div>
+      </div>
+
+      <h4 class="drink-group-title drink-head--black">Alkoholfreie Getränke</h4>
+      <div class="drink-group">
+        <div class="drink-item">
+          <span class="drink-name">
+            Coca Cola<a href="#allergen-hinweise" class="allergen-footnote"><sup>1/2</sup></a>, 
+            Cola Zero<a href="#allergen-hinweise" class="allergen-footnote"><sup>1/2/3/4</sup></a>, 
+            Cola Light<a href="#allergen-hinweise" class="allergen-footnote"><sup>1/2/3/4</sup></a>
+          </span>
+          <span class="drink-volume">0,33&nbsp;L</span>
+          <span class="drink-price">3,90&nbsp;€</span>
+        </div>
+
+        <div class="drink-item">
+          <span class="drink-name">
+            Fanta<a href="#allergen-hinweise" class="allergen-footnote"><sup>1</sup></a>, 
+            Sprite<a href="#allergen-hinweise" class="allergen-footnote"><sup>1/2/4</sup></a>
+          </span>
+          <span class="drink-volume">0,33&nbsp;L</span>
+          <span class="drink-price">3,90&nbsp;€</span>
+        </div>
+
+        <div class="drink-item">
+          <span class="drink-name">
+            Fritz Cola<a href="#allergen-hinweise" class="allergen-footnote"><sup>1/2</sup></a>, 
+            MischMasch<a href="#allergen-hinweise" class="allergen-footnote"><sup>1/2</sup></a>
+          </span>
+          <span class="drink-volume">0,33&nbsp;L</span>
+          <span class="drink-price">4,50&nbsp;€</span>
+        </div>
+
+        <div class="drink-item">
+          <span class="drink-name">Rhabarber Schorle</span>
+          <span class="drink-volume">0,33&nbsp;L</span>
+          <span class="drink-price">4,90&nbsp;€</span>
+        </div>
+
+        <div class="drink-item">
+          <span class="drink-name">Saftschorlen</span>
+          <span class="drink-volume">0,40&nbsp;L</span>
+          <span class="drink-price">4,90&nbsp;€</span>
+        </div>
+
+        <div class="drink-item">
+          <span class="drink-name">Bionade</span>
+          <span class="drink-volume">0,33&nbsp;L</span>
+          <span class="drink-price">4,50&nbsp;€</span>
+        </div>
+
+        <div class="drink-item">
+          <span class="drink-name">Wasser still, soda</span>
+          <span class="drink-volume">0,25&nbsp;L</span>
+          <span class="drink-price">3,50&nbsp;€</span>
+        </div>
+        <div class="drink-item">
+          <span class="drink-name">Wasser still, soda</span>
+          <span class="drink-volume">0,70&nbsp;L</span>
+          <span class="drink-price">7,00&nbsp;€</span>
+        </div>
+
+        <div class="drink-item">
+          <span class="drink-name">
+            Tonic Water<a href="#allergen-hinweise" class="allergen-footnote"><sup>5</sup></a> / 
+            Bitter Lemon<a href="#allergen-hinweise" class="allergen-footnote"><sup>5/7</sup></a>, 
+            Ginger Ale<a href="#allergen-hinweise" class="allergen-footnote"><sup>1</sup></a>
+          </span>
+          <span class="drink-volume">0,20&nbsp;L</span>
+          <span class="drink-price">3,90&nbsp;€</span>
+        </div>
+
+        <div class="drink-item">
+          <span class="drink-name">
+            Karamalz<a href="#allergen-hinweise" class="allergen-footnote"><sup>1</sup></a>
+          </span>
+          <span class="drink-volume">0,33&nbsp;L</span>
+          <span class="drink-price">3,90&nbsp;€</span>
+        </div>
+      </div>
+
+      <h4 class="drink-group-title drink-head--black">Biere</h4>
+      <div class="drink-group">
+        <div class="drink-item">
+          <span class="drink-name">Krombacher vom Fass</span>
+          <span class="drink-volume">0,50&nbsp;L</span>
+          <span class="drink-price">5,90&nbsp;€</span>
+        </div>
+        <div class="drink-item">
+          <span class="drink-name">Krombacher, Flasche</span>
+          <span class="drink-volume">0,33&nbsp;L</span>
+          <span class="drink-price">4,50&nbsp;€</span>
+        </div>
+        <div class="drink-item">
+          <span class="drink-name">Krombacher Hefeweizen, Flasche</span>
+          <span class="drink-volume">0,50&nbsp;L</span>
+          <span class="drink-price">5,90&nbsp;€</span>
+        </div>
+        <div class="drink-item">
+          <span class="drink-name">Homemade CRAFT BEER Pale Ale</span>
+          <span class="drink-volume">0,33&nbsp;L</span>
+          <span class="drink-price">6,50&nbsp;€</span>
+        </div>
+        <div class="drink-item">
+          <span class="drink-name">Heineken, Flasche</span>
+          <span class="drink-volume">0,33&nbsp;L</span>
+          <span class="drink-price">4,90&nbsp;€</span>
+        </div>
+        <div class="drink-item">
+          <span class="drink-name">San Miguel, Flasche</span>
+          <span class="drink-volume">0,33&nbsp;L</span>
+          <span class="drink-price">4,90&nbsp;€</span>
+        </div>
+        <div class="drink-item">
+          <span class="drink-name">Krombacher Alkoholfrei</span>
+          <span class="drink-volume">0,33&nbsp;L</span>
+          <span class="drink-price">4,50&nbsp;€</span>
+        </div>
+        <div class="drink-item">
+          <span class="drink-name">Krombacher Hefeweizen Alkoholfrei, Flasche</span>
+          <span class="drink-volume">0,50&nbsp;L</span>
+          <span class="drink-price">5,90&nbsp;€</span>
+        </div>
+      </div>
+
+      <h4 class="drink-group-title drink-head--black">Kaffee</h4>
+      <div class="drink-group">
+        <div class="drink-item">
+          <span class="drink-name">Espresso</span>
+          <span class="drink-volume"></span>
+          <span class="drink-price">2,00&nbsp;€</span>
+        </div>
+        <div class="drink-item">
+          <span class="drink-name">Espresso doppelt</span>
+          <span class="drink-volume"></span>
+          <span class="drink-price">3,00&nbsp;€</span>
+        </div>
+        <div class="drink-item">
+          <span class="drink-name">Americano</span>
+          <span class="drink-volume"></span>
+          <span class="drink-price">3,00&nbsp;€</span>
+        </div>
+        <div class="drink-item">
+          <span class="drink-name">Cappuccino</span>
+          <span class="drink-volume"></span>
+          <span class="drink-price">3,50&nbsp;€</span>
+        </div>
+        <div class="drink-item">
+          <span class="drink-name">Latte Macchiato</span>
+          <span class="drink-volume"></span>
+          <span class="drink-price">3,50&nbsp;€</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. SÜTUN – CHAMPAGNER & SEKT / WEINE / APERITIFS / DIGESTIFS -->
+    <div class="drink-column">
+      <h3 class="drink-column-title drink-head--champagner">Champagner &amp; Sekt</h3>
+      <div class="drink-group">
+        <div class="drink-item">
+          <span class="drink-name">Moet &amp; Chandon Champagne</span>
+          <span class="drink-volume">0,70&nbsp;L</span>
+          <span class="drink-price">85,00&nbsp;€</span>
+        </div>
+        <div class="drink-item">
+          <span class="drink-name">Scavi &amp; Ray Prosecco</span>
+          <span class="drink-volume">0,10&nbsp;L</span>
+          <span class="drink-price">6,50&nbsp;€</span>
+        </div>
+      </div>
+
+      <h4 class="drink-group-title drink-head--wine">Weine Rot</h4>
+      <div class="drink-group">
+        <div class="drink-item">
+          <span class="drink-name">Merlot, Frankreich</span>
+          <span class="drink-volume">0,20&nbsp;L</span>
+          <span class="drink-price">6,90&nbsp;€</span>
+        </div>
+        <div class="drink-item">
+          <span class="drink-name">Cabernet Sauvignon, Südafrika</span>
+          <span class="drink-volume">0,20&nbsp;L</span>
+          <span class="drink-price">7,50&nbsp;€</span>
+        </div>
+        <div class="drink-item">
+          <span class="drink-name">Monastrell Wrongo Dongo, Spanien</span>
+          <span class="drink-volume">0,70&nbsp;L</span>
+          <span class="drink-price">29,90&nbsp;€</span>
+        </div>
+        <div class="drink-item">
+          <span class="drink-name">Leib &amp; Seele Cuveé, Pfalz</span>
+          <span class="drink-volume">0,75&nbsp;L</span>
+          <span class="drink-price">31,90&nbsp;€</span>
+        </div>
+        <div class="drink-item">
+          <span class="drink-name">Antonio Mas Malbec, Argentinien</span>
+          <span class="drink-volume">0,75&nbsp;L</span>
+          <span class="drink-price">42,90&nbsp;€</span>
+        </div>
+      </div>
+
+      <h4 class="drink-group-title drink-head--wine">Weine Weiß</h4>
+      <div class="drink-group">
+        <div class="drink-item">
+          <span class="drink-name">Chardonnay Frankreich</span>
+          <span class="drink-volume">0,20&nbsp;L</span>
+          <span class="drink-price">6,90&nbsp;€</span>
+        </div>
+        <div class="drink-item">
+          <span class="drink-name">Sauvignon Blanc, Rheinhessen</span>
+          <span class="drink-volume">0,20&nbsp;L</span>
+          <span class="drink-price">7,50&nbsp;€</span>
+        </div>
+        <div class="drink-item">
+          <span class="drink-name">Lady Lola Pinot Grigio &amp; Muscat, Italien</span>
+          <span class="drink-volume">0,75&nbsp;L</span>
+          <span class="drink-price">31,90&nbsp;€</span>
+        </div>
+        <div class="drink-item">
+          <span class="drink-name">Glaube Liebe Hoffnung Riesling, Pfalz</span>
+          <span class="drink-volume">0,75&nbsp;L</span>
+          <span class="drink-price">34,90&nbsp;€</span>
+        </div>
+      </div>
+
+      <h4 class="drink-group-title drink-head--wine">Weine Rosé</h4>
+      <div class="drink-group">
+        <div class="drink-item">
+          <span class="drink-name">Rosé D’Anjou</span>
+          <span class="drink-volume">0,20&nbsp;L</span>
+          <span class="drink-price">7,50&nbsp;€</span>
+        </div>
+        <div class="drink-item">
+          <span class="drink-name">MeinMain Apfelwein rosé, süss, sauer</span>
+          <span class="drink-volume">0,33&nbsp;L</span>
+          <span class="drink-price">4,50&nbsp;€</span>
+        </div>
+      </div>
+
+      <h4 class="drink-group-title drink-head--black">Aperitifs</h4>
+      <div class="drink-group">
+        <div class="drink-item">
+          <span class="drink-name">Hugo</span>
+          <span class="drink-volume"></span>
+          <span class="drink-price">7,50&nbsp;€</span>
+        </div>
+        <div class="drink-item">
+          <span class="drink-name">
+            Aperol Sprizz<a href="#allergen-hinweise" class="allergen-footnote"><sup>5</sup></a>
+          </span>
+          <span class="drink-volume"></span>
+          <span class="drink-price">7,50&nbsp;€</span>
+        </div>
+        <div class="drink-item">
+          <span class="drink-name">Martini</span>
+          <span class="drink-volume"></span>
+          <span class="drink-price">6,00&nbsp;€</span>
+        </div>
+        <div class="drink-item">
+          <span class="drink-name">Lillet Wildberry</span>
+          <span class="drink-volume"></span>
+          <span class="drink-price">7,50&nbsp;€</span>
+        </div>
+      </div>
+
+      <h4 class="drink-group-title drink-head--black">Digestifs 2cl</h4>
+      <div class="drink-group">
+        <div class="drink-item">
+          <span class="drink-name">Ramazzotti</span>
+          <span class="drink-volume"></span>
+          <span class="drink-price">3,50&nbsp;€</span>
+        </div>
+        <div class="drink-item">
+          <span class="drink-name">Grappa</span>
+          <span class="drink-volume"></span>
+          <span class="drink-price">3,50&nbsp;€</span>
+        </div>
+        <div class="drink-item">
+          <span class="drink-name">Jägermeister</span>
+          <span class="drink-volume"></span>
+          <span class="drink-price">3,50&nbsp;€</span>
+        </div>
+        <div class="drink-item">
+          <span class="drink-name">Baileys</span>
+          <span class="drink-volume"></span>
+          <span class="drink-price">4,50&nbsp;€</span>
+        </div>
+        <div class="drink-item">
+          <span class="drink-name">Sambuca</span>
+          <span class="drink-volume"></span>
+          <span class="drink-price">3,50&nbsp;€</span>
+        </div>
+        <div class="drink-item">
+          <span class="drink-name">Tequila</span>
+          <span class="drink-volume"></span>
+          <span class="drink-price">3,50&nbsp;€</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. SÜTUN – COCKTAILS & LONGDRINKS -->
+    <div class="drink-column drink-column--cocktails">
+      <h3 class="drink-column-title drink-head--cocktails">Cocktails</h3>
+
+      <div class="drink-group">
+        <div class="drink-item">
+          <span class="drink-name">Caipirinha</span>
+          <span class="drink-volume"></span>
+          <span class="drink-price">9,50&nbsp;€</span>
+        </div>
+        <div class="drink-desc">
+          Limette, Rohrzucker, Cachaça
+        </div>
+
+        <div class="drink-item">
+          <span class="drink-name">Mojito</span>
+          <span class="drink-volume"></span>
+          <span class="drink-price">9,50&nbsp;€</span>
+        </div>
+        <div class="drink-desc">
+          Weißer Havanna Rum, Limette, Minze, Rohrzucker
+        </div>
+
+        <div class="drink-item">
+          <span class="drink-name">Raspberry Mojito</span>
+          <span class="drink-volume"></span>
+          <span class="drink-price">10,50&nbsp;€</span>
+        </div>
+        <div class="drink-desc">
+          Limette, Minzblätter, Bacardi Razz, Himbeere, Soda
+        </div>
+
+        <div class="drink-item">
+          <span class="drink-name">Moscow Mule</span>
+          <span class="drink-volume"></span>
+          <span class="drink-price">10,50&nbsp;€</span>
+        </div>
+        <div class="drink-desc">
+          Vodka, frischer Limettensaft, Ginger Beer, Gurke, frischer Ingwer
+        </div>
+
+        <div class="drink-item">
+          <span class="drink-name">Raspberry Mule</span>
+          <span class="drink-volume"></span>
+          <span class="drink-price">10,50&nbsp;€</span>
+        </div>
+        <div class="drink-desc">
+          Captain Morgan, frischer Limettensaft, Himbeere, Ginger Beer, frischer Ingwer
+        </div>
+
+        <div class="drink-item">
+          <span class="drink-name">Basil Smash</span>
+          <span class="drink-volume"></span>
+          <span class="drink-price">10,50&nbsp;€</span>
+        </div>
+        <div class="drink-desc">
+          Gin, Zitronensaft, Zuckersirup, frischer Basilikum
+        </div>
+
+        <div class="drink-item">
+          <span class="drink-name">Eve’s Kiss</span>
+          <span class="drink-volume"></span>
+          <span class="drink-price">10,50&nbsp;€</span>
+        </div>
+        <div class="drink-desc">
+          Bacardi Rum, Coconut, Orangensaft, Maracujasaft, Zuckersirup, Zitronensaft, frischer Basilikum
+        </div>
+
+        <div class="drink-item">
+          <span class="drink-name">Ladykiller</span>
+          <span class="drink-volume"></span>
+          <span class="drink-price">11,00&nbsp;€</span>
+        </div>
+        <div class="drink-desc">
+          Gin, Cointreau, Apricot, Brandy, Ananassaft, Maracujasaft
+        </div>
+
+        <div class="drink-item">
+          <span class="drink-name">Aperol Sour</span>
+          <span class="drink-volume"></span>
+          <span class="drink-price">9,50&nbsp;€</span>
+        </div>
+        <div class="drink-desc">
+          Aperol, frischer Zitronensaft, Rohrzucker, Orangensaft, Orangenzeste
+        </div>
+
+        <div class="drink-item">
+          <span class="drink-name">Whisky Sour</span>
+          <span class="drink-volume"></span>
+          <span class="drink-price">11,50&nbsp;€</span>
+        </div>
+        <div class="drink-desc">
+          Maker’s Mark Whisky, frischer Zitronensaft, Rohrzucker, Eiweiß, Orangenzeste
+        </div>
+      </div>
+
+      <h4 class="drink-group-title drink-head--black">Longdrinks</h4>
+      <div class="drink-group">
+        <div class="drink-item">
+          <span class="drink-name">Cuba Libre</span>
+          <span class="drink-volume"></span>
+          <span class="drink-price">9,00&nbsp;€</span>
+        </div>
+        <div class="drink-item">
+          <span class="drink-name">Gin &amp; Tonic</span>
+          <span class="drink-volume"></span>
+          <span class="drink-price">9,00&nbsp;€</span>
+        </div>
+        <div class="drink-item">
+          <span class="drink-name">Jack &amp; Coke</span>
+          <span class="drink-volume"></span>
+          <span class="drink-price">9,00&nbsp;€</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</section>
+
+  </main>
+
+  <!-- CART SIDEBAR -->
+
+</div>
+
+  </main>
+
+  <!-- CART SIDEBAR -->
+
+</div> <!-- .layout kapanışı -->
+
+<footer class="site-footer">
+  <div class="footer-inner">
+
+    <!-- SOL BLOK: Şubeler -->
+    <div class="footer-locations">
+      <h3>Unsere Standorte</h3>
+
+      <div class="footer-location">
+        <h4>Oeder Weg</h4>
+        <p>
+          Oeder Weg&nbsp;XX<br>
+          60318 Frankfurt am Main
+        </p>
+        <div class="footer-actions">
+          <!-- 👉 buraya gerçek rezervasyon linkini yaz -->
+          <a class="footer-btn" href="https://services.gastronovi.com/restaurants/42567/reservierung/widget#1" target="_blank" rel="noopener">
+            Reservieren
+          </a>
+          <!-- 👉 buraya gerçek Google Maps linkini yaz -->
+          <a class="footer-link" href="https://www.google.com/maps?q=Der+Fette+Bulle+Oeder+Weg" target="_blank" rel="noopener">
+            Map
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-location">
+        <h4>Kaiserstraße</h4>
+        <p>
+          Kaiserstraße&nbsp;XX<br>
+          60329 Frankfurt am Main
+        </p>
+        <div class="footer-actions">
+          <!-- aynı rezervasyon linki ya da şube özel linki -->
+          <a class="footer-btn" href="https://www.google.com/maps/reserve/v/dine/c/Yt20BMVTHsM?source=pa&opi=89978449&hl=de-DE&gei=9ZkQac6ROsHZ7_UP4qu3qQI&sourceurl=https://www.google.com/service/ViewerOrchestratorService/FetchViewer?hl%3Dde%26gl%3Dde" target="_blank" rel="noopener">
+            Reservieren
+          </a>
+          <!-- gerçek Google Maps linkiyle değiştir -->
+          <a class="footer-link" href="https://www.google.com/maps?q=Der+Fette+Bulle+Kaiserstraße" target="_blank" rel="noopener">
+            Map
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- SAĞ BLOK: Alergen, sosyal, info -->
+    <div class="footer-meta">
+      <h3>Infos</h3>
+
+      <p>
+        <!-- 👉 buradaki href'i kendi PDF yoluna göre değiştir -->
+        <a class="allergen-link-footer" href="docs/Allergen-booklet-A4-dfb-2023.pdf" target="_blank" rel="noopener">
+          Allergen- &amp; Zusatzstoffliste (PDF)
+        </a>
+      </p>
+
+      <div class="footer-social">
+        <!-- 👉 gerçek Instagram linkini yaz -->
+        <a href="https://www.instagram.com/derfettebulle" target="_blank" rel="noopener">
+          Instagram · @derfettebulle
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <div>© 2025 Der Fette Bulle</div>
+    <div class="footer-bottom-links">
+      <!-- 👉 gerçek sayfa URL’leriyle değiştir -->
+      <a href="#">Impressum</a>
+      <span>·</span>
+      <a href="#">Datenschutz</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  window.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.allergen-link').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        const targetId = btn.getAttribute('data-allergen-target');
+        if (!targetId) return;
+        const el = document.getElementById(targetId);
+        if (!el) return;
+        el.classList.toggle('active');
+      });
+    });
+  });
+</script>
+
+<script>
+window.addEventListener('scroll', () => {
+  const header = document.querySelector('header');
+  if (window.scrollY > 10) {
+    header.style.boxShadow = '0 2px 6px rgba(0,0,0,0.15)';
+  } else {
+    header.style.boxShadow = 'none';
+  }
+});
+</script>
+</body>
+</html>
