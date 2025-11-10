@@ -413,8 +413,23 @@ header .tagline {
   color: var(--dfb-red);
 }
 
-/* responsive: tablet → 2 sütun, mobil → 1 sütun */
+/* 🧃 TABLET LAYOUT (≤ 900px) */
 @media (max-width: 900px) {
+  .layout {
+    padding: 0 1rem;
+  }
+
+  .menu-section {
+    padding: 1.4rem 1.2rem;
+  }
+
+  /* Burger & More kartları: 2 sütun */
+  .menu-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.9rem 1rem;
+  }
+
+  /* Drinks: 2 sütun */
   .drinks-layout {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1.4rem;
@@ -516,9 +531,128 @@ header .tagline {
 .drink-head--cocktails {
   color: var(--dfb-red);
 }
+/* 📱 PHONE LAYOUT (≤ 600px) */
 @media (max-width: 600px) {
+
+  /* HEADER */
+  header {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0.9rem 1rem 0.7rem;
+  }
+
+  header h1 {
+    font-size: 1.3rem;
+    letter-spacing: 0.07em;
+    line-height: 1.1;
+  }
+
+  header .tagline {
+    font-size: 0.95rem;
+    margin-top: 0.25rem;
+  }
+
+  /* ANA LAYOUT */
+  .layout {
+    padding: 0.8rem 0.9rem;
+  }
+
+  /* BURGERS & MORE kartları: tek sütun */
+  .menu-section {
+    padding: 1.1rem 0.9rem;
+  }
+
+  .menu-section + .menu-section {
+    margin-top: 1.4rem;
+    padding-top: 1.1rem;
+  }
+
+  .menu-grid {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+
+  .menu-item {
+    padding: 0.75rem 0.75rem 0.85rem;
+    border-width: 1px;
+  }
+
+  .menu-img {
+    width: 100%;
+    max-height: 220px;
+    object-fit: cover;
+  }
+
+  .menu-item h3 {
+    font-size: 0.86rem;
+  }
+
+  .desc {
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+
+  .price {
+    font-size: 0.86rem;
+  }
+
+  .allergen-link {
+    font-size: 0.75rem;
+    display: block;
+    margin-top: 0.3rem;
+    text-align: left;
+  }
+
+  /* MEGA BAŞLIKLAR (BURGERS / MORE / DRINKS) */
+  .mega-title {
+    margin: 2rem 0 1.2rem;
+  }
+
+  .mega-title span {
+    font-size: 1.35rem;
+    letter-spacing: 0.12em;
+    padding: 0 0.7rem;
+  }
+
+  /* DRINKS: tek sütun */
   .drinks-layout {
     grid-template-columns: 1fr;
+    gap: 1.1rem;
+  }
+
+  .drink-item {
+    grid-template-columns: minmax(0, 1fr) auto;   /* isim | fiyat */
+    column-gap: 0.5rem;
+  }
+
+  .drink-volume {
+    display: none; /* çok dar ekranda istersek gizleyebiliriz */
+  }
+
+  .drink-price {
+    font-size: 0.82rem;
+  }
+
+  .drink-desc {
+    font-size: 0.78rem;
+  }
+
+  /* FOOTER */
+  .site-footer {
+    padding: 1.4rem 1rem 1.1rem;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
   }
 }
 .drink-group-title {
@@ -2263,6 +2397,10 @@ header .tagline {
     </div>
   </div>
 </footer>
+
+<p style="text-align:center; color:#999; font-size:0.75rem; margin-top:0.5rem;">
+  Test update · 10 Nov 2025
+</p>
 
 <script>
   window.addEventListener('DOMContentLoaded', function () {
