@@ -1214,8 +1214,6 @@ header .tagline {
       <div class="menu-grid">
         <!-- Klasik Rind -->
        <article class="menu-item" data-name="Cheeseburger" data-price="11.90">
-  <img class="menu-img" src="images/cheeseburger.png" alt="Cheeseburger">
-
   <div class="menu-item-header">
     <h3>CHEESEBURGER</h3>
     <div class="price">11,90 €</div>
@@ -1225,14 +1223,21 @@ header .tagline {
     Old Irish Cheddar, Tomaten, Spreewaldgurken, Zwiebeln.
   </p>
 
+  <img
+    src="images/cheeseburger.jpg"
+    alt="Cheeseburger mit Old Irish Cheddar"
+    class="menu-img"
+    style="display:block; width:100%; max-width:320px; border-radius:10px; margin:0.5rem 0 1rem;"
+  />
+
   <div class="actions">
-    <button class="allergen-link" type="button" data-allergen-target="allergen-cheeseburger">
+    <button
+      class="allergen-link"
+      type="button"
+      data-allergen-target="allergen-cheeseburger"
+    >
       Allergene anzeigen
     </button>
-  </div>
-
-  <div id="allergen-cheeseburger" class="allergen-details">
-    <strong>Allergene:</strong> Enthält Gluten, Milch (Laktose). Kann Spuren von Senf enthalten.
   </div>
 </article>
 
